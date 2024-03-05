@@ -1,11 +1,15 @@
-steps:
+substitutions:
+  _TF_STATE_BUCKET: terraformpefs
 
+steps:
 - id: 'tf apply'
   name: 'hashicorp/terraform:1.0.0'
   entrypoint: 'sh'
   args: 
   - '-c'
   - | 
-   
     terraform apply -auto-approve
- 
+- name: Set TF_STATE_BUCKET
+  env:
+    TF_STATE_BUCKET: $_TF_STATE_BUCKET
+
