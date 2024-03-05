@@ -12,4 +12,3 @@ steps:
 - name: Set TF_STATE_BUCKET
   env:
     TF_STATE_BUCKET: $_TF_STATE_BUCKET
-
